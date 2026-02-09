@@ -4,40 +4,21 @@
     <meta charset="UTF-8">
     <title>簡単Webページ</title>
     <style>
-        /* --- CSS: 見た目の調整 --- */
-        body {
-            font-family: sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        #message {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+        /* CSS: 見た目を設定 */
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
     </style>
 </head>
 <body>
-
-    <!-- --- HTML: 構造 --- -->
-    <div id="message">ボタンを押してね</div>
-    <button id="myButton">クリック</button>
+    <h1>こんにちは！</h1>
+    <p>下のボタンを押して色を変えてみよう。</p>
+    <button id="colorBtn">背景色を変更</button>
 
     <script>
-        // --- JavaScript: 動き ---
-        const button = document.getElementById('myButton');
-        const message = document.getElementById('message');
-
-        button.addEventListener('click', function() {
-            message.innerText = '色が変わったぞ！';
-            message.style.color = 'blue'; // 色も変わる
+        // JavaScript: 動きを追加
+        document.getElementById('colorBtn').addEventListener('click', function() {
+            document.body.style.backgroundColor = '#f0e68c';
         });
     </script>
-
 </body>
 </html>
