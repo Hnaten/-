@@ -2,31 +2,49 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>いい名前が思いつかない</title>
+    <title>背景チェンジャー</title>
     <style>
-        /* CSS: 見た目を設定 */
-        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        body {
+            /* 中央寄せとアニメーション設定 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s ease;
+            font-family: sans-serif;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 8px;
+            border: none;
+            background: #333;
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <h1>こんにちは！</h1>
-    <p>下のボタンを押して色を変えてみよう。</p>
-    <button id="colorBtn">背景色を変更</button>
- <script>
-        // 背景色の候補
-        const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FFFF33'];
-        
-        // ランダムに色を選択
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        
-        // 背景色を適用
-        document.body.style.backgroundColor = randomColor;
-     
+
+    <button id="colorBtn">背景を変える！</button>
+
     <script>
-        // JavaScript: 動きを追加
-        document.getElementById('colorBtn').addEventListener('click', function() {
-            document.body.style.backgroundColor = '#f0e68c';
+        const btn = document.getElementById('colorBtn');
+
+        // ランダムな色（#XXXXXX形式）を生成
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // ボタンクリック時に背景色を更新
+        btn.addEventListener('click', () => {
+            document.body.style.backgroundColor = getRandomColor();
         });
     </script>
 </body>
